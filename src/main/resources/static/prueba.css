@@ -1,6 +1,8 @@
-.pruebita{
-    color: rgb(17, 164, 105);
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
+
+
+.container_body{
+    background-color: #54c9c3;
+}
+.color_nav{
+    background-color: #ffd067;
 }

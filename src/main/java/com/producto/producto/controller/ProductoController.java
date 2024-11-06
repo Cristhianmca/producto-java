@@ -107,6 +107,8 @@ public class ProductoController {
     }
     @PostMapping("/edit")
     public String editProducto(@RequestParam Long id, @ModelAttribute("dto") ProductoDto dto) { 
+
+        
         Producto producto = new Producto();
         producto.setIdproducto(id);
         producto.setCodigo(dto.getCodigo());

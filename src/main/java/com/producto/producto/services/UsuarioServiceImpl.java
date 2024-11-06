@@ -18,13 +18,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     UsuarioRepository repository;
 
     @Override
-    public List<Usuario> listProducto() {
+    public List<Usuario> listUsuario() {
         return repository.findAll();
         
     }
 
     @Override
-    public Usuario saveProducto(Usuario usuario) {
+    public Usuario saveUsuario(Usuario usuario) {
         return repository.save(usuario);
     }
 

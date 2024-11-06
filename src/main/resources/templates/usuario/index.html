@@ -23,16 +23,16 @@
         </tr>
       <tbody class="table-group-divider">
         <tr th:each="usuario: ${usuario}">
-          <td th:field="*{idusuario}" ></td>
-          <td th:field="*{dni}" ></td>
-          <td th:field="*{apellidos}" ></td>
-          <td th:field="*{nombres}" ></td>
-          <td th:field="*{clave}" ></td>
-          <td th:field="*{tipo}" ></td>
+          <td th:text="${usuario.idusuario}" ></td>
+          <td th:text="${usuario.dni}" ></td>
+          <td th:text="${usuario.apellidos}" ></td>
+          <td th:text="${usuario.nombres}" ></td>
+          <td th:text="${usuario.clave}"></td>
+          <td  th:text="${usuario.tipo == 1 ? 'Admin' : usuario.tipo == 2 ? 'User' : 'otro'}"></td>
 
           <td style="white-space:nowrap">
             <a class="btn btn-primary btn-sm" th:href="@{/usuario/edit(id=${usuario.idusuario})}">Editar</a>
-            <a class="btn btn-danger btn-sm" th:href="@{/producto/delete(id=${producto.idproducto})}">Borrar</a>
+            <a class="btn btn-danger btn-sm" th:href="@{/usuario/delete(id=${usuario.idusuario})}">Borrar</a>
 
           </td>
 
