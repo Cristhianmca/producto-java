@@ -1,34 +1,36 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg color_nav">
+
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg color_nav ">
     <div class="container">
-      <a class="navbar-brand" href="#">CleVal</a>
+      <a class="navbar-brand text-black fw-semibold" href="#">CleVal</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse text-dark" id="navbarNav" >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
+            <a class="nav-link active text-black fw-semibold " aria-current="page" th:href="@{/}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href="@{/producto}">Producto</a>
+            <a class="nav-link text-black fw-semibold" th:href="@{/producto}">Producto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cliente</a>
+            <a class="nav-link text-black fw-semibold" href="#">Cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Venta</a>
+            <a class="nav-link text-black fw-semibold" href="">Venta</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" >Reporte</a>
+            <a class="nav-link text-black fw-semibold" href="" >Reporte</a>
           </li>
 
           <li class="nav-item">
-            <a th:if="${session.tiposession}==1" class="nav-link" th:href="@{/usuario}">Usuario</a>
+            <a th:if="${session.tiposession}==1" class="nav-link text-black fw-semibold" th:href="@{/usuario}">Usuario</a>
           </li>
           
         </ul>
       </div>
-     <a th:if="${session.tiposession == null} " class="navbar-brand" th:href="@{/login}" >Ingresar</a>
-     <a th:if="${session.tiposession != null} " class="navbar-brand" th:href="@{/logout}">Salir</a>
+     <a th:if="${session.tiposession == null} " class="navbar-brand text-black fw-semibold" th:href="@{/login}" >Ingresar</a>
+     <a th:if="${session.tiposession != null} " class="navbar-brand text-black fw-semibold" th:href="@{/logout}">Salir</a>
     </div>
   </nav>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/componente/head :: head">
+<head th:replace="/componente/head :: head"> 
 </head>
+<link rel="stylesheet" href="/prueba.css">
 
 <body>
   <nav th:replace="/componente/navbar :: navbar"></nav>
   <div class="container mb-3">
-    <h1 class="text-center bg-danger ">Lista de Usuarios</h1>
-    <a class="btn btn-danger" href="/usuario/create">Nuevo Usuario</a>
+    <h1 class="text-center  ">Lista de Usuarios</h1>
+    <a class="btn btn-outline-warning" href="/usuario/create">Nuevo Usuario</a>
 
     <table class="table">
       <thead>
