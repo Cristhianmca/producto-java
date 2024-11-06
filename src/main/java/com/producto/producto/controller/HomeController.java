@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.producto.producto.entities.Usuario;
@@ -14,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
-    @Autowired
+    @Autowired // inyeccion de dependencias
     UsuarioService service;
 
     @GetMapping("/")
@@ -29,7 +30,7 @@ public class HomeController {
         return "/usuario/login"; // retorna la vista login de la carpeta usuario
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login(@RequestParam String dni, @RequestParam String clave, Model model, HttpSession session) {
         Usuario u = service.leeLogin(dni, clave);
         if (u == null) {
@@ -42,6 +43,13 @@ public class HomeController {
         System.out.println("Conexión exitosa");
         return "redirect:/";
 
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("idsession");
+        session.removeAttribute("tiposession");
+        return "redirect:/";
     }
 
 }

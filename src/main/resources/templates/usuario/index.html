@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/componente/head :: head">
+</head>
+
+<body>
+  <nav th:replace="/componente/navbar :: navbar"></nav>
+  <div class="container mb-3">
+    <h1 class="text-center bg-danger ">Lista de Usuarios</h1>
+    <a class="btn btn-danger" href="/usuario/create">Nuevo Usuario</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>DNI</th>
+          <th>APELLIDOS</th>
+          <th>NOMBRES</th>
+          <th>CLAVE</th>
+          <th>TIPO</th>
+          <th>Acciones</th>
+
+        </tr>
+      <tbody class="table-group-divider">
+        <tr th:each="usuario: ${usuario}">
+          <td th:field="*{idusuario}" ></td>
+          <td th:field="*{dni}" ></td>
+          <td th:field="*{apellidos}" ></td>
+          <td th:field="*{nombres}" ></td>
+          <td th:field="*{clave}" ></td>
+          <td th:field="*{tipo}" ></td>
+
+          <td style="white-space:nowrap">
+            <a class="btn btn-primary btn-sm" th:href="@{/usuario/edit(id=${usuario.idusuario})}">Editar</a>
+            <a class="btn btn-danger btn-sm" th:href="@{/producto/delete(id=${producto.idproducto})}">Borrar</a>
+
+          </td>
+
+        </tr>
+      </tbody>
+      </thead>
+    </table>
+  </div>
+
+
+
+
+  <footer th:replace="/componente/footer :: footer"></footer>
+</body>
+
+</html>

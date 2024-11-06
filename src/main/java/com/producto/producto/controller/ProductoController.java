@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.producto.producto.entities.Producto;
 import com.producto.producto.entities.ProductoDto;
 import com.producto.producto.services.ProductoService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -28,8 +31,10 @@ public class ProductoController {
     
 
     @GetMapping({"","/"})
-    public String getProducto(Model model){ {
-
+    public String getProducto(Model model, HttpSession session ){ {
+        if(session.getAttribute("tiposession")== null ){
+            return "redirect:/login";
+        }
         var producto = servicio.listarProductos();
         model.addAttribute("producto", producto);
         return "producto/index";
@@ -43,7 +48,10 @@ public class ProductoController {
     // }
 
     @GetMapping("/create")
-    public String createProducto(Model model) {
+    public String createProducto(Model model, HttpSession session) {
+        if(session.getAttribute("tiposession")== null ){
+            return "redirect:/login";
+        }
         ProductoDto dto = new ProductoDto();
         model.addAttribute("dto", dto);
         return "producto/create";
@@ -75,7 +83,10 @@ public class ProductoController {
   
 
     @GetMapping("/edit")
-    public String editProducto(Model model,@RequestParam Long id) {
+    public String editProducto(Model model,@RequestParam Long id , HttpSession session) {
+        if(session.getAttribute("tiposession")== null ){
+            return "redirect:/login";
+        }
         Producto producto = servicio.leeIdProducto(id);
         if (producto == null) {
             return "redirect:/producto";
@@ -110,7 +121,10 @@ public class ProductoController {
 
     
     @GetMapping("/delete")
-    public String deleteProducto(@RequestParam Long id) {
+    public String deleteProducto(@RequestParam Long id, HttpSession session) {
+        if(session.getAttribute("tiposession")== null ){
+            return "redirect:/login";
+        }
         Producto producto = servicio.leeIdProducto(id);
         if (producto!=null) {
             servicio.deleteProducto(id);     
