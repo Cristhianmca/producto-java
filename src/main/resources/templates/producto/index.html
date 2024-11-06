@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/componente/head :: head">
-  <link rel="stylesheet" href="/prueba.css">
 </head>
+<link rel="stylesheet" href="/prueba.css">
 
 <body>
-  <nav th:replace="/componente/navbar :: navbar"></nav>
-  <div class="container mb-3">
-    <h1 class="text-center bg-danger ">Lista de productos</h1>
+  <nav class="color_nav" th:replace="/componente/navbar :: navbar"></nav>
+  <div class="container mb-3 mt-4">
+    <h1 class="text-center  ">Lista de productos</h1>
     <a class="btn btn-danger" href="/producto/create">Nuevo Producto</a>
 
     <table class="table">

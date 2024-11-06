@@ -1,8 +1,14 @@
-
+<link
+rel="preload"
+href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"
+as="style"
+onload="this.onload=null;this.rel='stylesheet'"
+/>
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg color_nav ">
     <div class="container">
-      <a class="navbar-brand text-black fw-semibold" href="#">CleVal</a>
+     <a th:href="@{/}"><img class="me-5" src="/img/shops.png" width="50" height="50"  alt="shop"></a> 
+      <!-- <a class="navbar-brand text-black fw-semibold" href="#">CleVal</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,7 +36,7 @@
           
         </ul>
       </div>
-     <a th:if="${session.tiposession == null} " class="navbar-brand text-black fw-semibold" th:href="@{/login}" >Ingresar</a>
-     <a th:if="${session.tiposession != null} " class="navbar-brand text-black fw-semibold" th:href="@{/logout}">Salir</a>
+     <a th:if="${session.tiposession == null} " class="navbar-brand text-black fw-semibold" th:href="@{/login}"  >Ingresar <i class="fa-thin fa-user"></i></a>
+     <a th:if="${session.tiposession != null} " class="navbar-brand text-black fw-semibold" th:href="@{/logout}">Salir <i class="fa-light fa-arrow-right-from-bracket"></i></a>
     </div>
   </nav>
