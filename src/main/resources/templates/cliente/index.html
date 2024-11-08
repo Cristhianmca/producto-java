@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/componente/head :: head"> 
+</head>
+<link rel="stylesheet" href="/prueba.css">
+
+<body>
+  <nav th:replace="/componente/navbar :: navbar"></nav>
+  <div class="container mb-3">
+    <h1 class="text-center  ">Lista de Clientes</h1>
+    <a class="btn btn-outline-warning" href="/cliente/create">Nuevo Ciente</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>NOMBRES</th>
+          <th>APELLIDOS</th>
+          <th>DOCUMENTOS</th>
+          <th>DIRECCION</th>
+          <th>TELEFONO</th>
+          <th>EMAIL</th>
+          <th>RAZON SOCIAL</th>
+          <th>TIPO</th>
+          <th>ESTADO</th>
+
+
+        </tr>
+      <tbody class="table-group-divider">
+        <tr th:each="cliente: ${cliente}">
+          <td th:text="${cliente.idcliente}" ></td>
+          <td th:text="${cliente.nombre}" ></td>
+          <td th:text="${cliente.apellido}" ></td>
+          <td th:text="${cliente.documento}" ></td>
+          <td th:text="${cliente.direccion}"></td>
+          <td th:text="${cliente.telefono}"></td>
+          <td th:text="${cliente.email}"></td>
+          <td th:text="${cliente.razonSocial}"></td>
+          <td th:text="${cliente.estado}"></td>
+          <td  th:text="${cliente.tipo == 1 ? 'Admin' : cliente.tipo == 2 ? 'User' : 'otro'}"></td>
+
+          <td style="white-space:nowrap">
+            <a class="btn btn-primary btn-sm" th:href="@{/cliente/edit(id=${cliente.idcliente})}">Editar</a>
+            <a class="btn btn-danger btn-sm" th:href="@{/cliente/delete(id=${cliente.idcliente})}">Borrar</a>
+
+          </td>
+
+        </tr>
+      </tbody>
+      </thead>
+    </table>
+  </div>
+
+
+
+
+  <footer th:replace="/componente/footer :: footer"></footer>
+</body>
+
+</html>
